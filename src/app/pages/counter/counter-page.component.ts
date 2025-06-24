@@ -3,13 +3,12 @@ import { ChangeDetectionStrategy, Component, signal } from "@angular/core";
 @Component({
   selector: 'app-counter',
   templateUrl: `./counter-page.component.html`,
-  styleUrls: ['./counter-page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CounterPageComponent {
-  initialValue = 10;
-  counterSignal = signal(10);
+  initialValue = 0;
+  counterSignal = signal(0);
 
   constructor() {}
 
@@ -26,7 +25,7 @@ export class CounterPageComponent {
     this.counterSignal.update(current => current - value);
   }
   resCount() {
-    this.counter = 0;
-    this.counterSignal.set(0);
+    this.counter = this.initialValue;
+    this.counterSignal.set(this.initialValue);
   }
 }
